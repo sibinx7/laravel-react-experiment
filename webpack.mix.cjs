@@ -5,9 +5,13 @@ let mix = require('laravel-mix');
 //   require("tailwindcss"),
 // ]);
 mix
-  .js('resources/react-laravel/index.js', 'public/frontend/js').react()
+  .js('resources/react-laravel/index.js', 'public/frontend/').react()
   // .js('resources/react-laravel/dashboard/index.js', 'public/dashboard/js').react()
 mix.webpackConfig({
+  output: {
+    chunkFilename: "vendor.js",
+    filename: "bundle.js",
+  },
   optimization: {
     splitChunks: {
       chunks: 'async',

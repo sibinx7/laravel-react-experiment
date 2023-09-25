@@ -1,3 +1,4 @@
+import React from "react";
 import dashboardImage from '../../assets/dashboard.jpg'
 export default function Dashboard(){
   return (

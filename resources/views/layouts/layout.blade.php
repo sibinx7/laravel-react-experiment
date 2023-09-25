@@ -26,6 +26,6 @@
             </div>
           </div>                    
         </div>
-        <script src="{{ asset('frontend/js/index.js')}}"></script>
+        <script src="{{ asset('frontend/bundle.js')}}"></script>
     </body>
 </html>

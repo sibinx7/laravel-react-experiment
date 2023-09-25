@@ -1,3 +1,4 @@
+import React from "react";
 import { Route, Switch as Routes } from 'react-router-dom';
 import config from '../config/config.js';
 import Portal from '../common/portal.js';

@@ -1,4 +1,4 @@
-const { inDev } = require('./webpack.helpers');
+const { inDev } = require('./webpack.helpers.cjs');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = [
@@ -30,21 +30,21 @@ module.exports = [
     ],
   },
   {
-    // Less loader
-    test: /\.less$/,
-    use: [
-      { loader: inDev() ? 'style-loader' : MiniCssExtractPlugin.loader },
-      { loader: 'css-loader' },
-      { loader: 'less-loader' },
-    ],
+    // Assets loader
+    // More information here https://webpack.js.org/guides/asset-modules/
+    test: /\.(gif|jpe?g|tiff|png|webp|bmp|svg)$/i,
+    type: 'asset',
+    generator: {
+      filename: 'assets/images/[name][ext]',
+    },
   },
   {
     // Assets loader
     // More information here https://webpack.js.org/guides/asset-modules/
-    test: /\.(gif|jpe?g|tiff|png|webp|bmp|svg|eot|ttf|woff|woff2)$/i,
+    test: /\.(eot|ttf|woff|woff2)$/i,
     type: 'asset',
     generator: {
-      filename: 'assets/[hash][ext][query]',
+      filename: 'assets/fonts/[name][ext]',
     },
   },
 ];
