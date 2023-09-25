@@ -1,5 +1,7 @@
 const path = require('path');
-const isProduction = process.env.production ? true : false;
+const TerserPlugin = require("terser-webpack-plugin");
+const isProduction = process.env.NODE_ENV === 'production'
+console.log(isProduction, "Production");
 const sourcePath = path.resolve(__dirname, './resources/react-laravel/index.js');
 const buildPath = path.resolve(__dirname, './public/frontend');
 
@@ -24,6 +26,8 @@ module.exports = {
     // splitChunks: {
     //   chunks: 'all',
     // },
+    minimize: isProduction,
+    minimizer: [new TerserPlugin()],
   },
   performance: {
     hints: false,
